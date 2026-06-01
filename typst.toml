@@ -1,0 +1,6 @@
+[package]
+name = "corporate-templates"
+version = "0.1.0"
+entrypoint = "lib.typ"
+description = "Corporate internal document templates"
+authors = ["Corporate"]
