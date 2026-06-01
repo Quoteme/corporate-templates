@@ -55,7 +55,7 @@
 
   align(left)[
     #if company-logo != none {
-      image(company-logo, height: 12mm)
+      company-logo
     } else {
       rect(
         height: 12mm, width: 36mm,
