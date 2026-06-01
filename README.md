@@ -2,10 +2,13 @@
 
 Typst document templates for internal corporate use.
 
-| Template | Function | Description |
+| Template | Function | Example |
 |---|---|---|
-| `day-recap.template.typ` | `day-recap` | Daily recap document with date header, todo list, and notes |
-| `study-evaluation.template.typ` | `study-evaluation` | Clinical investigation / study evaluation report |
+| `day-recap.template.typ` | `day-recap` | [PDF](https://happel.ai/corporate-templates/day-recap.pdf) |
+| `study-evaluation.template.typ` | `study-evaluation` | [PDF](https://happel.ai/corporate-templates/study-evaluation.pdf) |
+| `study.template.typ` | `study` | [PDF](https://happel.ai/corporate-templates/study.pdf) |
+
+> Example PDFs are generated automatically by GitHub Actions on every push to `main`. They are not stored in the repository.
 
 ---
 
@@ -21,7 +24,7 @@ Typst loads local packages from:
 
 ```sh
 mkdir -p ~/Library/Application\ Support/typst/packages/local/corporate-templates
-git clone https://github.com/<your-org>/corporate-templates \
+git clone https://github.com/Quoteme/corporate-templates \
   ~/Library/Application\ Support/typst/packages/local/corporate-templates/0.1.0
 ```
 
@@ -38,6 +41,8 @@ ln -s /path/to/your/checkout \
 ## Usage
 
 After installation, import any template at the top of your `.typ` file:
+
+### `day-recap`
 
 ```typ
 #import "@local/corporate-templates:0.1.0": day-recap, todo-item
@@ -56,6 +61,8 @@ After installation, import any template at the top of your `.typ` file:
 Body text goes here.
 ```
 
+### `study-evaluation`
+
 ```typ
 #import "@local/corporate-templates:0.1.0": study-evaluation
 
@@ -63,13 +70,33 @@ Body text goes here.
   title: "Study Title",
   subtitle: "Phase II",
   company-name: "Corporate",
-  company-logo: "mainLogo.svg",
   authors: (("Jane Smith", "Clinical Affairs", "jane@corporate.com"),),
   recipients: (("John Doe", "Regulatory", "john@corporate.com"),),
   abstract: [Brief abstract text.],
 )
 
 = Introduction
+
+Body text goes here.
+```
+
+### `study`
+
+```typ
+#import "@local/corporate-templates:0.1.0": study
+
+#show: study.with(
+  title: "Wearable Biosensor Accuracy Study",
+  subtitle: "Continuous heart rate monitoring in free-living conditions",
+  study-id: "CS-2026-001",
+  phase: "Phase II",
+  company-name: "Corporate",
+  authors: (("Jane Smith", "Principal Investigator", "jane@corporate.com"),),
+  recipients: (("John Doe", "Regulatory", "john@corporate.com"),),
+  abstract: [Brief abstract text.],
+)
+
+= Background
 
 Body text goes here.
 ```
@@ -84,3 +111,4 @@ Body text goes here.
 | `todo-item` | `day-recap.template.typ` |
 | `study-evaluation` | `study-evaluation.template.typ` |
 | `metadata-row` | `study-evaluation.template.typ` |
+| `study` | `study.template.typ` |
