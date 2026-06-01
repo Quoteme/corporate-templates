@@ -22,6 +22,9 @@
   authors: (),
   body,
 ) = {
+  let subtitle = if subtitle == none or subtitle == "" { none } else { subtitle }
+  let recipients = if recipients == none { () } else { recipients }
+
   set page(
     paper: "a4",
     margin: (top: 1.6cm, bottom: 1.8cm, x: 1.8cm),
