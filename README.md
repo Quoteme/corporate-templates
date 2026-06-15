@@ -7,6 +7,7 @@ Typst document templates for internal corporate use.
 | `day-recap.template.typ` | `day-recap` | [PDF](https://happel.ai/corporate-templates/day-recap.pdf) |
 | `study-evaluation.template.typ` | `study-evaluation` | [PDF](https://happel.ai/corporate-templates/study-evaluation.pdf) |
 | `study.template.typ` | `study` | [PDF](https://happel.ai/corporate-templates/study.pdf) |
+| `letter-of-recommendation.template.typ` | `letter-of-recommendation` | [PDF](https://happel.ai/corporate-templates/letter-of-recommendation.pdf) |
 
 > Example PDFs are generated automatically by GitHub Actions on every push to `main`. They are not stored in the repository.
 
@@ -103,6 +104,29 @@ Body text goes here.
 Body text goes here.
 ```
 
+### `letter-of-recommendation`
+
+```typ
+#import "@local/corporate-templates:0.1.0": letter-of-recommendation
+
+#show: letter-of-recommendation.with(
+  company-name: "Corporate",
+  company-logo: image("logo.svg", height: 12mm),
+  sender-name: "Dr. Jane Smith",
+  sender-title: "Head of Clinical Affairs",
+  sender-email: "jane.smith@corporate.com",
+  sender-phone: "+49 30 123456-0",
+  candidate-name: "Alex Johnson",
+  recipient-name: "Prof. Dr. Maria Müller",      // optional – omit for "To Whom It May Concern"
+  recipient-title: "Admissions Committee Chair", // optional
+  recipient-org: "Institute of Biomedical Engineering", // optional
+  issued-at: datetime(year: 2026, month: 6, day: 15),
+  subject: none,  // defaults to "Letter of Recommendation – <candidate-name>"
+)
+
+It is with great enthusiasm that I recommend Alex Johnson...
+```
+
 ---
 
 ## Available exports
@@ -114,3 +138,4 @@ Body text goes here.
 | `study-evaluation` | `study-evaluation.template.typ` |
 | `metadata-row` | `study-evaluation.template.typ` |
 | `study` | `study.template.typ` |
+| `letter-of-recommendation` | `letter-of-recommendation.template.typ` |
