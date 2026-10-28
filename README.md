@@ -5,10 +5,10 @@ Typst document templates for internal corporate use.
 | Template | Function | Preview | Example |
 |---|---|---|---|
 | `day-recap.template.typ` | `day-recap` | [<img src="https://happel.ai/corporate-templates/day-recap.png" width="160" alt="day-recap preview">](https://happel.ai/corporate-templates/day-recap.pdf) | [PDF](https://happel.ai/corporate-templates/day-recap.pdf) |
-| `study-evaluation.template.typ` | `study-evaluation` | [<img src="https://happel.ai/corporate-templates/study-evaluation.png" width="160" alt="study-evaluation preview">](https://happel.ai/corporate-templates/study-evaluation.pdf) | [PDF](https://happel.ai/corporate-templates/study-evaluation.pdf) |
-| `study.template.typ` | `study` | [<img src="https://happel.ai/corporate-templates/study.png" width="160" alt="study preview">](https://happel.ai/corporate-templates/study.pdf) | [PDF](https://happel.ai/corporate-templates/study.pdf) |
-| `letter-of-recommendation.template.typ` | `letter-of-recommendation` | [<img src="https://happel.ai/corporate-templates/letter-of-recommendation.png" width="160" alt="letter-of-recommendation preview">](https://happel.ai/corporate-templates/letter-of-recommendation.pdf) | [PDF](https://happel.ai/corporate-templates/letter-of-recommendation.pdf) |
 | `guide.template.typ` | `guide` | [<img src="https://happel.ai/corporate-templates/guide.png" width="160" alt="guide preview">](https://happel.ai/corporate-templates/guide.pdf) | [PDF](https://happel.ai/corporate-templates/guide.pdf) |
+| `letter-of-recommendation.template.typ` | `letter-of-recommendation` | [<img src="https://happel.ai/corporate-templates/letter-of-recommendation.png" width="160" alt="letter-of-recommendation preview">](https://happel.ai/corporate-templates/letter-of-recommendation.pdf) | [PDF](https://happel.ai/corporate-templates/letter-of-recommendation.pdf) |
+| `study.template.typ` | `study` | [<img src="https://happel.ai/corporate-templates/study.png" width="160" alt="study preview">](https://happel.ai/corporate-templates/study.pdf) | [PDF](https://happel.ai/corporate-templates/study.pdf) |
+| `study-evaluation.template.typ` | `study-evaluation` | [<img src="https://happel.ai/corporate-templates/study-evaluation.png" width="160" alt="study-evaluation preview">](https://happel.ai/corporate-templates/study-evaluation.pdf) | [PDF](https://happel.ai/corporate-templates/study-evaluation.pdf) |
 
 > Example PDFs and preview screenshots (first page, rendered as PNG) are generated automatically by GitHub Actions on every push to `main`. They are not stored in the repository.
 
