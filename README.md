@@ -8,6 +8,7 @@ Typst document templates for internal corporate use.
 | `study-evaluation.template.typ` | `study-evaluation` | [<img src="https://happel.ai/corporate-templates/study-evaluation.png" width="160" alt="study-evaluation preview">](https://happel.ai/corporate-templates/study-evaluation.pdf) | [PDF](https://happel.ai/corporate-templates/study-evaluation.pdf) |
 | `study.template.typ` | `study` | [<img src="https://happel.ai/corporate-templates/study.png" width="160" alt="study preview">](https://happel.ai/corporate-templates/study.pdf) | [PDF](https://happel.ai/corporate-templates/study.pdf) |
 | `letter-of-recommendation.template.typ` | `letter-of-recommendation` | [<img src="https://happel.ai/corporate-templates/letter-of-recommendation.png" width="160" alt="letter-of-recommendation preview">](https://happel.ai/corporate-templates/letter-of-recommendation.pdf) | [PDF](https://happel.ai/corporate-templates/letter-of-recommendation.pdf) |
+| `guide.template.typ` | `guide` | [<img src="https://happel.ai/corporate-templates/guide.png" width="160" alt="guide preview">](https://happel.ai/corporate-templates/guide.pdf) | [PDF](https://happel.ai/corporate-templates/guide.pdf) |
 
 > Example PDFs and preview screenshots (first page, rendered as PNG) are generated automatically by GitHub Actions on every push to `main`. They are not stored in the repository.
 
@@ -176,6 +177,50 @@ Body text goes here.
 It is with great enthusiasm that I recommend Alex Johnson...
 ```
 
+### `guide`
+
+Process guides for internal workflows (onboarding, approvals, incident handling, …). Flowcharts are drawn with [fletcher](https://typst.app/universe/package/fletcher).
+
+```typ
+#import "@local/corporate-templates:0.1.0": guide, flowchart, step, decision, terminal, edge, callout, steps, checklist, responsibilities
+
+#show: guide.with(
+  title: "Employee Onboarding",
+  subtitle: "From signed contract to productive team member", // optional
+  guide-id: "GD-HR-004",                                     // optional
+  version: "2.1",
+  status: "Approved",
+  owner: "People & Culture",                                 // optional
+  audience: "New employees, hiring managers",                // optional
+  issued-at: datetime(year: 2026, month: 9, day: 1),
+  review-at: datetime(year: 2027, month: 3, day: 1),         // optional
+  company-name: "Corporate",
+  company-logo: image("logo.svg", height: 12mm),
+  summary: [What this guide is for.],                         // optional
+  contacts: (("Sarah Becker", "People & Culture", "sarah@corporate.com"),),
+  revisions: (("2.1", datetime(year: 2026, month: 9, day: 1), "S. Becker", [Added buddy programme.]),),
+  outline-depth: 2, // none or 0 disables the table of contents
+)
+
+= Process Overview
+
+#flowchart(
+  caption: [Onboarding process.],
+  terminal((0, 0), [Contract signed]),
+  edge("-|>"),
+  decision((0, 1), [Ready?]),
+  edge("r", "-|>", [no]),
+  step((1, 1), [Escalate]),
+  edge((0, 1), (0, 2), "-|>", [yes]),
+  terminal((0, 2), [Done]),
+)
+
+#steps(([Order hardware], [At least 10 working days ahead.]), [Create accounts])
+#checklist(([Collect badge], true), [Complete trainings])
+#callout(kind: "warning", title: "Lead time")[Open the ticket early.] // note | tip | important | warning
+#responsibilities(("Hiring manager", [Owns the onboarding plan.]))
+```
+
 ---
 
 ## Available exports
@@ -188,3 +233,13 @@ It is with great enthusiasm that I recommend Alex Johnson...
 | `metadata-row` | `study-evaluation.template.typ` |
 | `study` | `study.template.typ` |
 | `letter-of-recommendation` | `letter-of-recommendation.template.typ` |
+| `guide` | `guide.template.typ` |
+| `flowchart` | `guide.template.typ` |
+| `step` | `guide.template.typ` |
+| `decision` | `guide.template.typ` |
+| `terminal` | `guide.template.typ` |
+| `edge` | `guide.template.typ` |
+| `callout` | `guide.template.typ` |
+| `steps` | `guide.template.typ` |
+| `checklist` | `guide.template.typ` |
+| `responsibilities` | `guide.template.typ` |
