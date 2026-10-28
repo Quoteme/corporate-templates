@@ -2,26 +2,52 @@
 
 Typst document templates for internal corporate use.
 
-| Template | Function | Example |
-|---|---|---|
-| `day-recap.template.typ` | `day-recap` | [PDF](https://happel.ai/corporate-templates/day-recap.pdf) |
-| `study-evaluation.template.typ` | `study-evaluation` | [PDF](https://happel.ai/corporate-templates/study-evaluation.pdf) |
-| `study.template.typ` | `study` | [PDF](https://happel.ai/corporate-templates/study.pdf) |
-| `letter-of-recommendation.template.typ` | `letter-of-recommendation` | [PDF](https://happel.ai/corporate-templates/letter-of-recommendation.pdf) |
+| Template | Function | Preview | Example |
+|---|---|---|---|
+| `day-recap.template.typ` | `day-recap` | [<img src="https://happel.ai/corporate-templates/day-recap.png" width="160" alt="day-recap preview">](https://happel.ai/corporate-templates/day-recap.pdf) | [PDF](https://happel.ai/corporate-templates/day-recap.pdf) |
+| `study-evaluation.template.typ` | `study-evaluation` | [<img src="https://happel.ai/corporate-templates/study-evaluation.png" width="160" alt="study-evaluation preview">](https://happel.ai/corporate-templates/study-evaluation.pdf) | [PDF](https://happel.ai/corporate-templates/study-evaluation.pdf) |
+| `study.template.typ` | `study` | [<img src="https://happel.ai/corporate-templates/study.png" width="160" alt="study preview">](https://happel.ai/corporate-templates/study.pdf) | [PDF](https://happel.ai/corporate-templates/study.pdf) |
+| `letter-of-recommendation.template.typ` | `letter-of-recommendation` | [<img src="https://happel.ai/corporate-templates/letter-of-recommendation.png" width="160" alt="letter-of-recommendation preview">](https://happel.ai/corporate-templates/letter-of-recommendation.pdf) | [PDF](https://happel.ai/corporate-templates/letter-of-recommendation.pdf) |
 
-> Example PDFs are generated automatically by GitHub Actions on every push to `main`. They are not stored in the repository.
+> Example PDFs and preview screenshots (first page, rendered as PNG) are generated automatically by GitHub Actions on every push to `main`. They are not stored in the repository.
 
 ---
 
-## Local installation (macOS)
+## Local installation
 
-Typst loads local packages from:
+Typst loads local packages from a platform-specific data directory:
 
+| OS | Package directory |
+|---|---|
+| Linux | `$XDG_DATA_HOME/typst/packages/local/` (defaults to `~/.local/share/typst/packages/local/`) |
+| macOS | `~/Library/Application Support/typst/packages/local/` |
+| Windows | `%APPDATA%\typst\packages\local\` |
+
+Each package lives in `<package-directory>/<name>/<version>/`. For this repository that is `corporate-templates/0.1.0`.
+
+You can either clone the repository straight into that directory (option A) or symlink an existing checkout (option B). A symlink is handy if you edit the templates, since changes show up without copying anything.
+
+### Linux
+
+**Option A – clone directly into the packages directory**
+
+```sh
+mkdir -p "${XDG_DATA_HOME:-$HOME/.local/share}/typst/packages/local/corporate-templates"
+git clone https://github.com/Quoteme/corporate-templates \
+  "${XDG_DATA_HOME:-$HOME/.local/share}/typst/packages/local/corporate-templates/0.1.0"
 ```
-~/Library/Application Support/typst/packages/local/<name>/<version>/
+
+**Option B – symlink a local checkout**
+
+```sh
+mkdir -p "${XDG_DATA_HOME:-$HOME/.local/share}/typst/packages/local/corporate-templates"
+ln -s /path/to/your/checkout \
+  "${XDG_DATA_HOME:-$HOME/.local/share}/typst/packages/local/corporate-templates/0.1.0"
 ```
 
-### Option A – clone directly into the packages directory
+### macOS
+
+**Option A – clone directly into the packages directory**
 
 ```sh
 mkdir -p ~/Library/Application\ Support/typst/packages/local/corporate-templates
@@ -29,13 +55,36 @@ git clone https://github.com/Quoteme/corporate-templates \
   ~/Library/Application\ Support/typst/packages/local/corporate-templates/0.1.0
 ```
 
-### Option B – symlink a local checkout
+**Option B – symlink a local checkout**
 
 ```sh
 mkdir -p ~/Library/Application\ Support/typst/packages/local/corporate-templates
 ln -s /path/to/your/checkout \
   ~/Library/Application\ Support/typst/packages/local/corporate-templates/0.1.0
 ```
+
+### Windows (PowerShell)
+
+**Option A – clone directly into the packages directory**
+
+```powershell
+New-Item -ItemType Directory -Force "$env:APPDATA\typst\packages\local\corporate-templates"
+git clone https://github.com/Quoteme/corporate-templates `
+  "$env:APPDATA\typst\packages\local\corporate-templates\0.1.0"
+```
+
+**Option B – link a local checkout**
+
+A directory junction works without administrator rights:
+
+```powershell
+New-Item -ItemType Directory -Force "$env:APPDATA\typst\packages\local\corporate-templates"
+New-Item -ItemType Junction `
+  -Path "$env:APPDATA\typst\packages\local\corporate-templates\0.1.0" `
+  -Target "C:\path\to\your\checkout"
+```
+
+If you want a real symbolic link instead (`-ItemType SymbolicLink`), you need to turn on Developer Mode or run PowerShell as administrator.
 
 ---
 

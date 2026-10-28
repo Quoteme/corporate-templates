@@ -1,4 +1,4 @@
-name: Generate example PDFs
+name: Generate example PDFs and previews
 
 on:
   push:
@@ -24,9 +24,10 @@ jobs:
       - name: Compile examples
         run: |
           mkdir -p dist
-          typst compile examples/day-recap.typ        dist/day-recap.pdf
-          typst compile examples/study-evaluation.typ dist/study-evaluation.pdf
-          typst compile examples/study.typ            dist/study.pdf
+          for name in day-recap study-evaluation study letter-of-recommendation; do
+            typst compile --root . "examples/$name.typ" "dist/$name.pdf"
+            typst compile --root . "examples/$name.typ" "dist/$name.png" --pages 1 --ppi 150
+          done
 
       - uses: actions/upload-pages-artifact@v3
         with:
